@@ -9,7 +9,7 @@ h1{
     color: #4e1b8b;
 }
 
-textarea, input{
+textarea, input.submit{
     display:block;
     margin : 1em auto;
 }
@@ -28,18 +28,24 @@ textarea:focus{
     outline:none;
 }
 
-input{
-    margin-top: 1em;
+input.submit, input.remove{
     padding: 0.4em 0.8em;
     background-color: #cfc5f3;
     color: #4e1b8b;
     border: 1px solid #4e1b8b;
-    font-size: 1.5em;
     font-weight: bold;
     border-radius: 0.3em;
 }
 
-input:disabled{
-    opacity: 0.5;
+input.remove{
+    align-self: center;
 }
 
+input.submit{
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+
+input.submit:disabled{
+    opacity: 0.5;
+}

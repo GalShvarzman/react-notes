@@ -4,7 +4,8 @@ import ListItem from "../components/listItem";
 
 interface INotesProps{
     notes : string[],
-    showNote(event:any):void
+    showNote(event:any):void,
+    onRemove(event:any):void
 }
 
 class Notes extends React.Component<INotesProps, {}> {
@@ -12,9 +13,10 @@ class Notes extends React.Component<INotesProps, {}> {
         super(props);
     }
 
+
     public getNotesList(){
         return this.props.notes.map((note, inx)=>{
-            return <ListItem note={note} key={inx}/>
+            return <ListItem onRemove={this.props.onRemove} note={note} key={inx}/>
         });
     }
 

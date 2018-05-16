@@ -11,8 +11,6 @@
     margin-top: 1em;
 }
 
-
-
 ul li{
     padding: 0.3em;
     font-size: 2em;
@@ -21,4 +19,8 @@ ul li{
     text-overflow: ellipsis;
     width: 6em;
     display: inline-block;
+    user-select: none;
+    cursor: pointer;
 }
+
+

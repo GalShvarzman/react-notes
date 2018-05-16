@@ -33,14 +33,23 @@ class App extends React.Component<IAppProps, IAppState> {
     };
 
     public showNote = (event:any) => {
-
+        alert(event.target.innerText);
     };
 
+    public onRemove = (event:any) => {
+        const index =  this.state.notes.findIndex((note:string)=>{
+            return note === event.target.parentElement.innerText;
+        });
+        if(index !== -1){
+           this.state.notes.splice(index, 1);
+           this.setState({notes : this.state.notes});
+        }
+    };
 
     public render() {
       return (
       <div className="App">
-          <Notes notes={this.state.notes} showNote={this.showNote}/>
+          <Notes onRemove={this.onRemove} notes={this.state.notes} showNote={this.showNote}/>
           <TextArea note={this.state.note} getNewNote={this.getNewNote} handleSubmit={this.handleSubmit}/>
       </div>
     );

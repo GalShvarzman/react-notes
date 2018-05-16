@@ -18,7 +18,7 @@ class TextArea extends React.Component <ITextAreaProps, {}>{
                 <form onSubmit={this.props.handleSubmit}>
                     <h1>Add a note</h1>
                     <textarea value={this.props.note} onChange={this.props.getNewNote}/>
-                    <input type="submit" value="Add" disabled={!this.props.note}/>
+                    <input className="submit" type="submit" value="Add" disabled={!this.props.note}/>
                 </form>
             </div>
         );
