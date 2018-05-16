@@ -1,9 +1,12 @@
 .App {
   display: flex;
   flex-direction: row;
+  height: 100vh;
 }
 
-
+*{
+  font-family: 'Annie Use Your Telescope',Monaco, monospace;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

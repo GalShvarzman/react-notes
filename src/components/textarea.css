@@ -1,10 +1,45 @@
-textarea, input{
-    display:block;
-    text-align: center;
-    align-items: center;
+.textArea-container{
+    width: 75%;
+    align-self: center;
 }
 
-.textArea-container{
-    width: 70%;
-    height: 100%;
+h1{
+    text-align: center;
+    font-size: 2.5em;
+    color: #4e1b8b;
 }
+
+textarea, input{
+    display:block;
+    margin : 1em auto;
+}
+
+textarea{
+    width: 20em;
+    height: 12em;
+    border: 2px solid #2f4f4f;
+    border-radius: 0.3em;
+    font-size:2em;
+    background-color: #fafffb;
+    color: darkslateblue;
+}
+
+textarea:focus{
+    outline:none;
+}
+
+input{
+    margin-top: 1em;
+    padding: 0.4em 0.8em;
+    background-color: #cfc5f3;
+    color: #4e1b8b;
+    border: 1px solid #4e1b8b;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 0.3em;
+}
+
+input:disabled{
+    opacity: 0.5;
+}
+

@@ -1,15 +1,11 @@
 import * as React from 'react';
 import './textarea.css';
 
-// import logo from './logo.svg';
-
 interface ITextAreaProps{
     note : string
-    getNote(event:any): void
+    getNewNote(event:any): void
     handleSubmit(event:any):void
 }
-
-
 
 class TextArea extends React.Component <ITextAreaProps, {}>{
     constructor(props:ITextAreaProps){
@@ -20,12 +16,10 @@ class TextArea extends React.Component <ITextAreaProps, {}>{
         return (
             <div className="textArea-container">
                 <form onSubmit={this.props.handleSubmit}>
-                    <h1>write note</h1>
-                    <textarea onChange={this.props.getNote}>{this.props.note}</textarea>
-                    <input type="submit" value="Submit"/>
+                    <h1>Add a note</h1>
+                    <textarea value={this.props.note} onChange={this.props.getNewNote}/>
+                    <input type="submit" value="Add" disabled={!this.props.note}/>
                 </form>
-
-
             </div>
         );
     }

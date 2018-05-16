@@ -3,17 +3,13 @@ import './notes.css';
 import ListItem from "../components/listItem";
 
 interface INotesProps{
-    notes : string[]
+    notes : string[],
+    showNote(event:any):void
 }
 
-interface INotesState{
-    notes : string[]
-}
-
-class Notes extends React.Component<INotesProps, INotesState> {
+class Notes extends React.Component<INotesProps, {}> {
     constructor(props:INotesProps) {
         super(props);
-        this.state = {notes:this.props.notes};
     }
 
     public getNotesList(){
@@ -22,16 +18,13 @@ class Notes extends React.Component<INotesProps, INotesState> {
         });
     }
 
-    public componentDidUpdate(){debugger
-        if (this.state.notes !== this.props.notes){
-            this.setState({notes: this.props.notes});
-        }
-    }
-
     public render() {
         const notesList = this.getNotesList();
         return (
-            <ul>{notesList}</ul>
+            <div className="notes-wrapper">
+                <h1>My notes</h1>
+                <ul onDoubleClick={this.props.showNote}>{notesList}</ul>
+            </div>
         );
     }
 }
