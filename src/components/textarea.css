@@ -15,7 +15,7 @@ textarea, input.submit{
 }
 
 textarea{
-    width: 20em;
+    width: 60%;
     height: 12em;
     border: 2px solid #2f4f4f;
     border-radius: 0.3em;
