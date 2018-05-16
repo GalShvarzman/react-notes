@@ -1,0 +1,10 @@
+textarea, input{
+    display:block;
+    text-align: center;
+    align-items: center;
+}
+
+.textArea-container{
+    width: 70%;
+    height: 100%;
+}

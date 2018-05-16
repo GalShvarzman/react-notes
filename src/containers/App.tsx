@@ -1,20 +1,47 @@
 import * as React from 'react';
 import './App.css';
 
-import logo from './logo.svg';
+import TextArea from "../components/textarea";
+import Notes from "./notes";
 
-class App extends React.Component {
-  public render() {
+interface IAppProps {
 
+
+}
+
+interface IAppState{
+    note : string
+    notes : string[]
+}
+
+class App extends React.Component<IAppProps, IAppState> {
+    constructor(props:any) {
+        super(props);
+        this.state = {note:"", notes:["d","d"]};
+
+    }
+
+    public getNewNote = (event:any)=>{
+        this.setState({note: event.target.value});
+    };
+
+    public addNote(note:string){
+        this.state.notes.push(note);
+    }
+
+    public handleSubmit = (event:any) => {
+        event.preventDefault();
+        this.addNote(this.state.note);
+        this.setState({notes : this.state.notes});
+    };
+
+
+
+    public render() {
       return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+          <Notes notes={this.state.notes}/>
+          <TextArea note={this.state.note} getNote={this.getNewNote} handleSubmit={this.handleSubmit}/>
       </div>
     );
   }
