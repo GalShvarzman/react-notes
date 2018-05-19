@@ -22,27 +22,23 @@ class App extends React.Component<IAppProps, IAppState> {
         this.setState({note: event.target.value});
     };
 
-    public addNote(note:string){
-        this.state.notes.push(note);
-    }
-
     public handleSubmit = (event:any) => {
         event.preventDefault();
-        this.addNote(this.state.note);
-        this.setState({notes : this.state.notes, note:""});
+        this.setState({notes : this.state.notes.concat(this.state.note), note:""});
     };
 
     public showNote = (event:any) => {
+        event.preventDefault();
         alert(event.target.innerText);
     };
 
     public onRemove = (event:any) => {
-        const index =  this.state.notes.findIndex((note:string)=>{
+        event.preventDefault();
+        const selectedNoteIndex =  this.state.notes.findIndex((note:string)=>{
             return note === event.target.parentElement.innerText;
         });
-        if(index !== -1){
-           this.state.notes.splice(index, 1);
-           this.setState({notes : this.state.notes});
+        if(selectedNoteIndex !== -1){
+           this.setState({notes : this.state.notes.filter((note, index)=>{return index !== selectedNoteIndex})});
         }
     };
 
